@@ -1,4 +1,4 @@
-import { FETCH_SMURFS_START, FETCH_SUCCESSFUL, FETCH_SMURFS_FAILURE, ADD_SMURF, ADDING_SMURF } from '../actions/index';
+import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAILURE, ADD_SMURF, ADDING_SMURF } from '../actions/index.js';
 
 const initialState = {
     smurfs: [],
@@ -8,6 +8,7 @@ const initialState = {
 
 
 const reducer = (state = initialState, action) => {
+    console.log('action', action)
     switch (action.type) {
       case FETCH_SMURFS_START:
         return {
@@ -15,7 +16,7 @@ const reducer = (state = initialState, action) => {
           isFetching: true,
           error: ""
         };
-      case FETCH_SUCCESSFUL:
+      case FETCH_SMURFS_SUCCESS:
         return {
           ...state,
           smurfs: action.payload,

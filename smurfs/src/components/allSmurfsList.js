@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 
-const Smurfs = ({ getSmurfs, allSmurfs, isFetching }) => {
+
+const Smurfs = ({ getSmurfs, smurfs, isFetching }) => {
   useEffect(() => {
     getSmurfs();
   }, []);
+
 
   if (isFetching) {
     return <h3>Getting smurfs</h3>;
@@ -11,14 +13,13 @@ const Smurfs = ({ getSmurfs, allSmurfs, isFetching }) => {
 
   return (
     <div>
-      {allSmurfs.map((item, index) => {
+      {smurfs.map((item, index) => {
         return (
           <div className="smurf-card" key={index}>
-            <div>
-              <h1>{item.name}</h1>
-              <p>Age: {item.age}</p>
-              <p>Height: {item.height}</p>
-            </div>
+            <h1>{item.name}</h1>
+
+            <p>Age: {item.age}</p>
+            <p>Height: {item.height}</p>
           </div>
         );
       })}
